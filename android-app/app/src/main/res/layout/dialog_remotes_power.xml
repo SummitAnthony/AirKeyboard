@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Power panel sheet (RemotesActivity): title, one row per option (added in code), Cancel -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="20dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="12dp"
+        android:text="@string/hub_power"
+        android:textAppearance="@style/TextAppearance.Glass.Title" />
+
+    <!-- The options scroll when the sheet is taller than the screen (phone landscape); the title and
+         Cancel stay put. 0dp + weight: as tall as the options, or what is left. -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:id="@+id/powerOptions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+
+    </ScrollView>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#2EFFFFFF" />
+
+    <TextView
+        android:id="@+id/btnPowerCancel"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:background="@drawable/bg_row_press"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center"
+        android:text="@string/cancel"
+        android:textColor="@color/link"
+        android:textSize="17sp" />
+
+</LinearLayout>

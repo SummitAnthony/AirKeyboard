@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Keyboard screen on tablets: the values it had before the phone fit -->
+<resources>
+    <dimen name="kb_gap_key">@dimen/gap_key</dimen>
+    <dimen name="kb_field_min_height">120dp</dimen>
+    <!-- MaterialButton's own side padding -->
+    <dimen name="kb_action_padding_h">16dp</dimen>
+    <integer name="kb_autosize">0</integer>
+</resources>

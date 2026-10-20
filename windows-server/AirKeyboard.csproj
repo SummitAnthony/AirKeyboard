@@ -1,0 +1,44 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <!-- WinExe: a double-click starts the tray app without flashing a console; the CLI modes
+         attach to the parent console (Program.AttachConsole) -->
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <RootNamespace>AirKeyboard</RootNamespace>
+    <AssemblyName>AirKeyboard</AssemblyName>
+    <Product>AirKeyboard</Product>
+    <Authors>Sumit Anthony</Authors>
+    <Copyright>Copyright (c) 2026 Sumit Anthony</Copyright>
+    <Version>1.0.3</Version>
+    <!-- Product version "1.0.3", without the commit hash .NET 8 appends by default -->
+    <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <ApplicationIcon Condition="Exists('AirKeyboard.ico')">AirKeyboard.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <!-- dotnet publish (Release by default in .NET 8) makes one self-contained publish\AirKeyboard.exe.
+       No trimming: WinForms does not support it. -->
+  <PropertyGroup Condition="'$(_IsPublishing)' == 'true'">
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <SelfContained>true</SelfContained>
+    <PublishSingleFile>true</PublishSingleFile>
+    <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+    <!-- About 160 MB uncompressed (the whole runtime and WinForms) -->
+    <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
+    <PublishTrimmed>false</PublishTrimmed>
+    <DebugType>none</DebugType>
+    <PublishDir>publish\</PublishDir>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="QRCoder" Version="1.4.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="AirKeyboard.ico" Condition="Exists('AirKeyboard.ico')" LogicalName="AirKeyboard.ico" />
+  </ItemGroup>
+
+</Project>

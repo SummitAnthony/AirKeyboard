@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingHorizontal="@dimen/screen_padding_h"
+    android:paddingBottom="@dimen/screen_padding_bottom">
+
+    <LinearLayout
+        android:id="@+id/appBar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_app_bar"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <!-- Title, timer and connection pill in a row; on phones held upright the pill goes under the
+             title and timer (dimens_rem, as on the trackpad), so a long PC address still fits -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:orientation="@integer/rem_app_bar_orientation">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="@dimen/rem_title_weight"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="@string/app_name"
+                    android:textAppearance="@style/TextAppearance.Glass.AppBarTitle" />
+
+                <!-- Time since Start; resets on Start, stops on End -->
+                <Chronometer
+                    android:id="@+id/chronoElapsed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:fontFeatureSettings="tnum"
+                    android:paddingHorizontal="6dp"
+                    android:textColor="@color/text_primary"
+                    android:textSize="@dimen/rem_timer_text_size" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/rem_status_height"
+                android:layout_marginStart="@dimen/rem_status_margin_start"
+                android:layout_marginTop="@dimen/rem_status_margin_top"
+                android:background="@drawable/bg_glass_pill"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="@dimen/rem_status_padding_h">
+
+                <View
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    android:background="@drawable/bg_dot_connected" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    android:text="@string/connected"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="14sp"
+                    android:visibility="@integer/landscape_only_visibility" />
+
+                <TextView
+                    android:id="@+id/tvConnectionStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:maxLines="1"
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnBack"
+            style="@style/Widget.Glass.Button.Pill"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/height_pill"
+            android:layout_marginStart="10dp"
+            android:text="@string/back" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="4dp"
+        android:text="@string/presentation_hint"
+        android:textColor="#9EFFFFFF"
+        android:textSize="14sp" />
+
+    <!-- Big clicker buttons. On phones Previous has less side padding and auto-sizes on one line;
+         in phone landscape the icons sit beside the labels (dimens_rem). -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="12dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnPrevious"
+            style="@style/Widget.Glass.Button"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="12dp"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif-medium"
+            android:maxLines="1"
+            android:paddingStart="@dimen/rem_button_padding_h"
+            android:paddingEnd="@dimen/rem_button_padding_h"
+            android:text="@string/slide_previous"
+            android:textSize="24sp"
+            app:autoSizeMaxTextSize="24sp"
+            app:autoSizeMinTextSize="12sp"
+            app:autoSizeTextType="@integer/rem_autosize"
+            app:icon="@drawable/ic_chevron_left"
+            app:iconGravity="@integer/rem_slide_icon_gravity"
+            app:iconPadding="10dp"
+            app:iconSize="30dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnNext"
+            style="@style/Widget.Glass.Button.Accent"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:fontFamily="sans-serif"
+            android:text="@string/slide_next"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            app:icon="@drawable/ic_chevron_right"
+            app:iconGravity="@integer/rem_slide_icon_gravity"
+            app:iconPadding="10dp"
+            app:iconSize="36dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:baselineAligned="false"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnStart"
+            style="@style/Widget.Glass.Button.Accent"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/height_primary"
+            android:layout_marginEnd="@dimen/gap"
+            android:layout_weight="1"
+            android:text="@string/slideshow_start" />
+
+        <!-- On phones: less side padding, up to two lines, auto-sized -->
+        <Button
+            android:id="@+id/btnStartCurrent"
+            style="@style/Widget.Glass.Button.Accent"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/height_primary"
+            android:layout_marginEnd="@dimen/gap"
+            android:layout_weight="1"
+            android:maxLines="@integer/rem_from_current_max_lines"
+            android:ellipsize="end"
+            android:paddingStart="@dimen/rem_button_padding_h"
+            android:paddingEnd="@dimen/rem_button_padding_h"
+            android:text="@string/slideshow_from_current"
+            app:autoSizeMaxTextSize="16sp"
+            app:autoSizeMinTextSize="12sp"
+            app:autoSizeTextType="@integer/rem_autosize" />
+
+        <Button
+            android:id="@+id/btnEnd"
+            style="@style/Widget.Glass.Button.Accent"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/height_primary"
+            android:layout_weight="1"
+            android:text="@string/slideshow_end" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:orientation="horizontal">
+
+        <!-- Swatches keep their own colors (iconTint null) -->
+        <Button
+            android:id="@+id/btnBlack"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/height_primary"
+            android:layout_marginEnd="@dimen/gap"
+            android:layout_weight="1"
+            android:background="@drawable/bg_glass_black"
+            android:text="@string/slideshow_black"
+            android:textSize="16sp"
+            app:icon="@drawable/ic_presentation_swatch_black"
+            app:iconPadding="10dp"
+            app:iconSize="14dp"
+            app:iconTint="@null" />
+
+        <Button
+            android:id="@+id/btnWhite"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/height_primary"
+            android:layout_weight="1"
+            android:background="@drawable/bg_glass_white"
+            android:text="@string/slideshow_white"
+            android:textSize="16sp"
+            app:icon="@drawable/ic_presentation_swatch_white"
+            app:iconPadding="10dp"
+            app:iconSize="14dp"
+            app:iconTint="@null" />
+
+    </LinearLayout>
+
+</LinearLayout>

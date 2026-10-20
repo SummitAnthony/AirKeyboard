@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AirKeyboard</string>
+    <string name="app_subtitle">Control Your PC Remotely</string>
+
+    <!-- Connection Activity -->
+    <string name="connect_to_device">Connect to Device</string>
+    <string name="scan_qr_code">Scan QR Code</string>
+    <string name="or_manual_connection">Or enter connection details manually</string>
+    <string name="host_ip_address">Host/IP Address</string>
+    <string name="port_default">Port (Default: 1978)</string>
+    <string name="connect">Connect</string>
+    <string name="auto_discover">Auto Discover</string>
+    <string name="cancel">Cancel</string>
+    <string name="scan_qr_prompt">Scan the QR code in the PC server window</string>
+    <string name="qr_not_pairing_code">This isn\'t the PC\'s QR code. Scan the code shown in the PC server window.</string>
+
+    <!-- Password prompt -->
+    <string name="password_for">Password for %1$s</string>
+    <string name="password_hint">Password</string>
+    <string name="remember_on_tablet">Remember on this device</string>
+    <string name="wrong_password">Wrong password</string>
+    <string name="password_locked_out">Too many wrong passwords. Try again in %1$d s.</string>
+    <string name="server_not_authentic">This PC could not prove it knows the password</string>
+    <string name="unsupported_server">This PC isn\'t running AirKeyboard, or runs a version this app doesn\'t support.</string>
+
+    <!-- General -->
+    <string name="connected">Connected</string>
+    <string name="disconnect">Disconnect</string>
+    <string name="back">Back</string>
+
+    <!-- Trackpad Activity -->
+    <string name="left_click">Left Click</string>
+    <string name="right_click">Right Click</string>
+    <string name="middle_click">Middle</string>
+    <string name="scroll_up">Scroll Up</string>
+    <string name="scroll_down">Scroll Down</string>
+    <string name="keyboard">Keyboard</string>
+    <string name="remotes">Remotes</string>
+    <string name="settings">Settings</string>
+
+    <!-- Keyboard Activity -->
+    <string name="type_text_here">Type text here...</string>
+    <string name="send_text">Send Text</string>
+    <string name="backspace">⌫</string>
+    <string name="backspace_description">Backspace</string>
+    <string name="enter">Enter</string>
+    <string name="tab">Tab</string>
+    <string name="escape">Esc</string>
+    <string name="ctrl">Ctrl</string>
+    <string name="alt">Alt</string>
+    <string name="shift">Shift</string>
+    <string name="paste_on_pc">Paste on PC</string>
+    <string name="not_connected">Not connected</string>
+    <string name="clipboard_empty">This device\'s clipboard is empty</string>
+    <string name="paste_too_long">Too long to paste (max 1 MB)</string>
+    <string name="pasting_on_pc">Pasting %1$d characters on PC</string>
+    <string name="live_typing">Live typing</string>
+
+    <!-- Remotes Activity -->
+    <string name="quick_commands">Quick Commands</string>
+
+    <!-- Settings Activity -->
+    <string name="sensitivity">Sensitivity</string>
+    <string name="forget_passwords">Forget saved PC passwords</string>
+    <string name="passwords_forgotten">Saved PC passwords forgotten</string>
+</resources>

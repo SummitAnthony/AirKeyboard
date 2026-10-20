@@ -1,0 +1,49 @@
+# Builds AirKeyboard.exe from the release's tag on GitHub's servers and attaches it to the
+# release (drafts too), with AirKeyboard-licenses.txt (every license and notice in one file),
+# so the 72 MB exe doesn't have to be uploaded from a PC. Run it from the Actions tab.
+name: Windows exe
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Release tag to attach AirKeyboard.exe to, e.g. v1.0.2
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.tag }}
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      # Settings (self-contained single file, win-x64) are in AirKeyboard.csproj
+      - name: Publish
+        working-directory: windows-server
+        run: dotnet publish
+
+      - name: SHA-256
+        run: (Get-FileHash windows-server/publish/AirKeyboard.exe -Algorithm SHA256).Hash.ToLower()
+
+      - name: Licenses in one file
+        run: |
+          $parts = 'LICENSE', 'THIRD-PARTY-NOTICES.md', 'licenses/Apache-2.0.txt',
+            'licenses/dotnet-runtime-THIRD-PARTY-NOTICES.txt',
+            'licenses/dotnet-winforms-THIRD-PARTY-NOTICES.txt',
+            'licenses/dotnet-wpf-THIRD-PARTY-NOTICES.txt'
+          $text = foreach ($p in $parts) { "===== $p =====`n"; Get-Content -Raw $p; "`n" }
+          Set-Content -Path AirKeyboard-licenses.txt -Value ($text -join '') -Encoding utf8
+
+      - name: Attach to the release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ inputs.tag }}
+        run: gh release upload "$env:TAG" windows-server/publish/AirKeyboard.exe AirKeyboard-licenses.txt --clobber

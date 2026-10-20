@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- One key of the keyboard screen's key grid (KeyPanels.build sets the text and layout params).
+     Phones: a label shrinks to fit a narrow key, not below 12sp (kb_autosize). -->
+<com.google.android.material.button.MaterialButton xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/Widget.Glass.Button.Key"
+    android:layout_width="0dp"
+    android:layout_height="@dimen/height_key"
+    android:textSize="16sp"
+    app:autoSizeMaxTextSize="16sp"
+    app:autoSizeMinTextSize="12sp"
+    app:autoSizeStepGranularity="1sp"
+    app:autoSizeTextType="@integer/kb_autosize" />

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Orange dot at the start of the no-gyroscope warning banner -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="oval">
+    <solid android:color="@color/warning" />
+    <size android:width="8dp" android:height="8dp" />
+</shape>

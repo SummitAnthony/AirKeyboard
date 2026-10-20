@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- One power panel option: a divider above a 52dp row -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/divider" />
+
+    <TextView
+        android:id="@+id/tvPowerOption"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:background="@drawable/bg_row_press"
+        android:gravity="center_vertical"
+        android:maxLines="1"
+        android:paddingHorizontal="20dp"
+        android:textColor="@color/text_primary"
+        android:textSize="17sp" />
+
+</LinearLayout>

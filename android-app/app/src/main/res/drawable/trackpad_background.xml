@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Trackpad: glass surface -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android"><item><shape android:shape="rectangle"><solid android:color="@color/glass_surface_fill" /><stroke android:width="1dp" android:color="@color/glass_stroke" /><corners android:radius="28dp" /></shape></item><item android:gravity="top" android:height="1dp" android:top="1dp" android:left="14dp" android:right="14dp"><shape android:shape="rectangle"><solid android:color="@color/glass_surface_highlight" /></shape></item></layer-list>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Remotes, Presentation, App Switcher, Bookmarks, Air Mouse and the power panel on phones.
+     Phones held upright (this file); phone landscape: values-land. Tablets (smallest width 686dp)
+     keep today's look: values-sw600dp. -->
+<resources>
+    <!-- App bar: title above a smaller connection pill (orientation 1 = vertical), as on the trackpad
+         (dimens_pad); the title isn't stretched -->
+    <integer name="rem_app_bar_orientation">1</integer>
+    <item name="rem_title_weight" format="float" type="dimen">0</item>
+    <dimen name="rem_status_height">26dp</dimen>
+    <dimen name="rem_status_padding_h">10dp</dimen>
+    <dimen name="rem_status_margin_start">0dp</dimen>
+    <dimen name="rem_status_margin_top">2dp</dimen>
+
+    <!-- Air Mouse keeps its first layout across rotation (it handles the change itself), so on phones
+         its app bar is stacked in both orientations (no values-land entry) -->
+    <integer name="rem_air_app_bar_orientation">1</integer>
+    <item name="rem_air_title_weight" format="float" type="dimen">0</item>
+    <dimen name="rem_air_status_height">26dp</dimen>
+    <dimen name="rem_air_status_padding_h">10dp</dimen>
+    <dimen name="rem_air_status_margin_start">0dp</dimen>
+    <dimen name="rem_air_status_margin_top">2dp</dimen>
+
+    <!-- Presentation: the timer sits beside the title, above the pill; 22sp so both lines fit -->
+    <dimen name="rem_timer_text_size">22sp</dimen>
+    <!-- Previous / Next icon above the label (0x10 = top); phone landscape puts it beside the label -->
+    <integer name="rem_slide_icon_gravity">16</integer>
+    <!-- Less side padding so "Previous" and "From Current Slide" fit narrow buttons -->
+    <dimen name="rem_button_padding_h">4dp</dimen>
+    <!-- "From Current Slide" may wrap to two lines -->
+    <integer name="rem_from_current_max_lines">2</integer>
+    <!-- Auto-size (1 = uniform, never below 12sp) in case a phone's font runs wider -->
+    <integer name="rem_autosize">1</integer>
+
+    <!-- Grid columns: Remotes tool tiles (3 + 2) and App Switcher shortcuts (2 x 2) -->
+    <integer name="rem_tile_columns">3</integer>
+    <integer name="rem_shortcut_columns">2</integer>
+    <!-- Half of @dimen/gap: grid cells have it on every side and the grid cancels it at its edges,
+         so cells are as wide as the old weighted row's and rows are a gap apart -->
+    <dimen name="rem_grid_half_gap">5dp</dimen>
+    <dimen name="rem_grid_half_gap_neg">-5dp</dimen>
+    <!-- Tile labels auto-size down to 12sp at most -->
+    <dimen name="rem_tile_label_min_text">12sp</dimen>
+</resources>

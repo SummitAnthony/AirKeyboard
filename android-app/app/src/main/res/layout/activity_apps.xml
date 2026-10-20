@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingHorizontal="@dimen/screen_padding_h"
+    android:paddingBottom="@dimen/screen_padding_bottom">
+
+    <LinearLayout
+        android:id="@+id/appBar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_app_bar"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+        <!-- Title and connection pill in a row; on phones held upright the pill goes under the title
+             (dimens_rem, as on the trackpad), so a long PC address still fits -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:orientation="@integer/rem_app_bar_orientation">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="@dimen/rem_title_weight"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:text="@string/hub_app_switcher"
+                android:textAppearance="@style/TextAppearance.Glass.AppBarTitle" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/rem_status_height"
+                android:layout_marginStart="@dimen/rem_status_margin_start"
+                android:layout_marginTop="@dimen/rem_status_margin_top"
+                android:background="@drawable/bg_glass_pill"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="@dimen/rem_status_padding_h">
+                <View android:layout_width="14dp" android:layout_height="14dp" android:background="@drawable/bg_dot_connected" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    android:text="@string/connected"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="14sp"
+                    android:visibility="@integer/landscape_only_visibility" />
+                <TextView
+                    android:id="@+id/tvConnectionStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:maxLines="1"
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp" />
+            </LinearLayout>
+        </LinearLayout>
+        <Button
+            android:id="@+id/btnBack"
+            style="@style/Widget.Glass.Button.Pill"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/height_pill"
+            android:layout_marginStart="10dp"
+            android:text="@string/back" />
+    </LinearLayout>
+
+    <!-- Window shortcuts; these work on any server. One row of four; on phones held upright 2 x 2
+         (rem_shortcut_columns). Each button has half a gap on every side; the grid's negative margins
+         take that off its edges (-1dp = 4dp less half a gap), as for the Remotes tiles. -->
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/rem_grid_half_gap_neg"
+        android:layout_marginTop="-1dp"
+        android:layout_marginEnd="@dimen/rem_grid_half_gap_neg"
+        android:layout_marginBottom="@dimen/rem_grid_half_gap_neg"
+        android:columnCount="@integer/rem_shortcut_columns">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnAltTab"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill_horizontal|top"
+            android:layout_margin="@dimen/rem_grid_half_gap"
+            android:maxLines="1"
+            android:paddingHorizontal="6dp"
+            android:text="@string/switcher_alt_tab"
+            app:icon="@drawable/ic_apps_alt_tab" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnTaskView"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill_horizontal|top"
+            android:layout_margin="@dimen/rem_grid_half_gap"
+            android:maxLines="1"
+            android:paddingHorizontal="6dp"
+            android:text="@string/switcher_task_view"
+            app:icon="@drawable/ic_grid" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnShowDesktop"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill_horizontal|top"
+            android:layout_margin="@dimen/rem_grid_half_gap"
+            android:maxLines="1"
+            android:paddingHorizontal="6dp"
+            android:text="@string/switcher_show_desktop"
+            app:icon="@drawable/ic_monitor" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnFullscreen"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill_horizontal|top"
+            android:layout_margin="@dimen/rem_grid_half_gap"
+            android:maxLines="1"
+            android:paddingHorizontal="6dp"
+            android:text="@string/switcher_fullscreen"
+            app:icon="@drawable/ic_apps_fullscreen" />
+
+    </GridLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="4dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/windows_title"
+            android:textAppearance="@style/TextAppearance.Glass.Title" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnRefresh"
+            style="@style/Widget.Glass.Button.Pill.Accent"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/height_pill"
+            android:text="@string/windows_refresh"
+            android:textSize="14sp"
+            app:icon="@drawable/ic_refresh"
+            app:iconPadding="6dp"
+            app:iconSize="15dp" />
+
+    </LinearLayout>
+
+    <!-- One glass card: the windows, or the state message in their place -->
+    <LinearLayout
+        android:id="@+id/cardWindows"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bg_glass_card"
+        android:orientation="vertical"
+        android:padding="1dp">
+
+        <!-- Loading / empty / failed / unsupported; hidden while the list shows -->
+        <TextView
+            android:id="@+id/tvState"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="22dp"
+            android:textColor="@color/text_secondary"
+            android:textSize="15sp"
+            android:visibility="gone" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvWindows"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,445 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingHorizontal="@dimen/screen_padding_h"
+    android:paddingBottom="@dimen/screen_padding_bottom">
+
+    <!-- App bar; hidden while the soft keyboard is open (see updateBars). Narrow screens (phones
+         held upright) wrap the status pill and Back to the second row (see fitWidth). -->
+    <LinearLayout
+        android:id="@+id/appBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/appBarRow"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_app_bar"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="@string/app_name"
+                android:textAppearance="@style/TextAppearance.Glass.AppBarTitle" />
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/switchLiveTyping"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                app:switchPadding="10dp"
+                android:text="@string/live_typing"
+                android:textSize="15sp" />
+
+            <LinearLayout
+                android:id="@+id/statusPill"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/height_pill"
+                android:layout_marginStart="@dimen/kb_app_bar_gap"
+                android:background="@drawable/bg_glass_pill"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="14dp">
+
+                <View
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    android:background="@drawable/bg_dot_connected" />
+
+                <!-- Landscape only, with room for it; set in code (fitWidth), as this screen
+                     handles rotation itself -->
+                <TextView
+                    android:id="@+id/tvConnectedLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    android:text="@string/connected"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="14sp"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/tvConnectionStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:maxLines="1"
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnBack"
+                style="@style/Widget.Glass.Button.Pill"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/height_pill"
+                android:layout_marginStart="10dp"
+                android:text="@string/back" />
+
+        </LinearLayout>
+
+        <!-- Narrow screens: the status pill (start) and Back (end) move here -->
+        <LinearLayout
+            android:id="@+id/appBarRow2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingBottom="6dp"
+            android:visibility="gone">
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Field and bars scroll together: with the soft keyboard open in landscape there is not
+         room for all of them, and a field squeezed to 0 px loses focus (Android 9+), after which
+         the keyboard's Delete key events reach no view. fillViewport lets the field stretch when
+         there is room. -->
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/fieldScroll"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Takes the space left over (fillViewport); at least kb_field_min_height (120dp;
+                 phones 80dp, so in landscape the action row still shows above the soft keyboard),
+                 then the bars scroll. The glass text area is the field's own background. -->
+            <com.airkeyboard.ui.keyboard.LiveEditText
+                android:id="@+id/etInput"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/bg_glass_surface"
+                android:gravity="top|start"
+                android:hint="@string/type_text_here"
+                android:imeOptions="flagNoPersonalizedLearning"
+                android:inputType="textMultiLine"
+                android:lineSpacingMultiplier="1.15"
+                android:minHeight="@dimen/kb_field_min_height"
+                android:paddingStart="18dp"
+                android:paddingTop="14dp"
+                android:paddingEnd="18dp"
+                android:paddingBottom="14dp"
+                android:saveEnabled="false"
+                android:textColor="@color/text_primary"
+                android:textColorHint="@color/text_tertiary"
+                android:textSize="19sp" />
+
+            <!-- Labels may take two lines; narrow screens drop the icons (see fitWidth). Not
+                 baseline aligned: a wrapped label would push its button down, out of the row. -->
+            <LinearLayout
+                android:id="@+id/actionRow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:baselineAligned="false"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnSend"
+                    style="@style/Widget.Glass.Button.Accent"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/height_secondary"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="1"
+                    android:maxLines="2"
+                    android:minHeight="@dimen/height_secondary"
+                    android:paddingStart="@dimen/kb_action_padding_h"
+                    android:paddingEnd="@dimen/kb_action_padding_h"
+                    android:text="@string/send_text"
+                    android:textSize="15sp"
+                    app:autoSizeMaxTextSize="15sp"
+                    app:autoSizeMinTextSize="12sp"
+                    app:autoSizeStepGranularity="1sp"
+                    app:autoSizeTextType="@integer/kb_autosize"
+                    app:icon="@drawable/ic_send" />
+
+                <Button
+                    android:id="@+id/btnPasteOnPc"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/height_secondary"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="1"
+                    android:maxLines="2"
+                    android:paddingStart="@dimen/kb_action_padding_h"
+                    android:paddingEnd="@dimen/kb_action_padding_h"
+                    android:text="@string/paste_on_pc"
+                    app:autoSizeMaxTextSize="15sp"
+                    app:autoSizeMinTextSize="12sp"
+                    app:autoSizeStepGranularity="1sp"
+                    app:autoSizeTextType="@integer/kb_autosize"
+                    app:icon="@drawable/ic_paste" />
+
+                <Button
+                    android:id="@+id/btnCopyFromPc"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/height_secondary"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="1"
+                    android:maxLines="2"
+                    android:paddingStart="@dimen/kb_action_padding_h"
+                    android:paddingEnd="@dimen/kb_action_padding_h"
+                    android:text="@string/copy_from_pc"
+                    app:autoSizeMaxTextSize="15sp"
+                    app:autoSizeMinTextSize="12sp"
+                    app:autoSizeStepGranularity="1sp"
+                    app:autoSizeTextType="@integer/kb_autosize"
+                    app:icon="@drawable/ic_copy" />
+
+                <Button
+                    android:id="@+id/btnVoice"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/height_secondary"
+                    android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:paddingStart="@dimen/kb_action_padding_h"
+                    android:paddingEnd="@dimen/kb_action_padding_h"
+                    android:text="@string/voice_input"
+                    app:icon="@drawable/ic_mic" />
+
+            </LinearLayout>
+
+            <!-- Shortcut bar: Ctrl / Alt / Shift / Win are sticky for the next key. Not baseline
+                 aligned: the bigger ⌫ label pushed the other keys 1.7dp down, out of the row. -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:baselineAligned="false"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnEscape"
+                    style="@style/Widget.Glass.Button.Key"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/height_key"
+                    android:layout_marginEnd="@dimen/kb_gap_key"
+                    android:layout_weight="1"
+                    android:text="@string/escape"
+                    android:textSize="14sp"
+                    app:autoSizeMaxTextSize="14sp"
+                    app:autoSizeMinTextSize="12sp"
+                    app:autoSizeStepGranularity="1sp"
+                    app:autoSizeTextType="@integer/kb_autosize" />
+
+                <Button
+                    android:id="@+id/btnTab"
+                    style="@style/Widget.Glass.Button.Key"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/height_key"
+                    android:layout_marginEnd="@dimen/kb_gap_key"
+                    android:layout_weight="1"
+                    android:text="@string/tab"
+                    android:textSize="14sp"
+                    app:autoSizeMaxTextSize="14sp"
+                    app:autoSizeMinTextSize="12sp"
+                    app:autoSizeStepGranularity="1sp"
+                    app:autoSizeTextType="@integer/kb_autosize" />
+
+                <Button
+                    android:id="@+id/btnEnter"
+                    style="@style/Widget.Glass.Button.Key"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/height_key"
+                    android:layout_marginEnd="@dimen/kb_gap_key"
+                    android:layout_weight="1"
+                    android:text="@string/enter"
+                    android:textSize="14sp"
+                    app:autoSizeMaxTextSize="14sp"
+                    app:autoSizeMinTextSize="12sp"
+                    app:autoSizeStepGranularity="1sp"
+                    app:autoSizeTextType="@integer/kb_autosize" />
+
+                <Button
+                    android:id="@+id/btnBackspace"
+                    style="@style/Widget.Glass.Button.Key"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/height_key"
+                    android:layout_marginEnd="@dimen/kb_gap_key"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/backspace_description"
+                    android:text="@string/backspace"
+                    android:textSize="18sp" />
+
+                <Button
+                    android:id="@+id/btnCtrl"
+                    style="@style/Widget.Glass.Button.Modifier"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/height_key"
+                    android:layout_marginEnd="@dimen/kb_gap_key"
+                    android:layout_weight="1"
+                    android:text="@string/ctrl"
+                    android:textSize="14sp"
+                    app:autoSizeMaxTextSize="14sp"
+                    app:autoSizeMinTextSize="12sp"
+                    app:autoSizeStepGranularity="1sp"
+                    app:autoSizeTextType="@integer/kb_autosize" />
+
+                <Button
+                    android:id="@+id/btnAlt"
+                    style="@style/Widget.Glass.Button.Modifier"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/height_key"
+                    android:layout_marginEnd="@dimen/kb_gap_key"
+                    android:layout_weight="1"
+                    android:text="@string/alt"
+                    android:textSize="14sp"
+                    app:autoSizeMaxTextSize="14sp"
+                    app:autoSizeMinTextSize="12sp"
+                    app:autoSizeStepGranularity="1sp"
+                    app:autoSizeTextType="@integer/kb_autosize" />
+
+                <Button
+                    android:id="@+id/btnShift"
+                    style="@style/Widget.Glass.Button.Modifier"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/height_key"
+                    android:layout_marginEnd="@dimen/kb_gap_key"
+                    android:layout_weight="1"
+                    android:text="@string/shift"
+                    android:textSize="14sp"
+                    app:autoSizeMaxTextSize="14sp"
+                    app:autoSizeMinTextSize="12sp"
+                    app:autoSizeStepGranularity="1sp"
+                    app:autoSizeTextType="@integer/kb_autosize" />
+
+                <Button
+                    android:id="@+id/btnWin"
+                    style="@style/Widget.Glass.Button.Modifier"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/height_key"
+                    android:layout_weight="1"
+                    android:text="@string/win"
+                    android:textSize="14sp"
+                    app:autoSizeMaxTextSize="14sp"
+                    app:autoSizeMinTextSize="12sp"
+                    app:autoSizeStepGranularity="1sp"
+                    app:autoSizeTextType="@integer/kb_autosize" />
+
+            </LinearLayout>
+
+            <!-- Extra keys; hidden while the soft keyboard is open, to leave room for the field -->
+            <LinearLayout
+                android:id="@+id/panelArea"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- Segmented control: the checked tab gets bg_segment's checked look. bg_segment is the
+                     foreground: a toggle group throws on a MaterialButton whose background is
+                     replaced (as every Widget.Glass button's is), so the own background stays,
+                     tinted transparent. White over the white label leaves it white. -->
+                <com.google.android.material.button.MaterialButtonToggleGroup
+                    android:id="@+id/panelTabs"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/bg_segment_track"
+                    android:padding="3dp"
+                    app:selectionRequired="false"
+                    app:singleSelection="true">
+
+                    <Button
+                        android:id="@+id/btnTabFKeys"
+                        style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/keys_function"
+                        android:textColor="@color/keyboard_segment_text"
+                        android:fontFamily="sans-serif-medium"
+                        android:foreground="@drawable/bg_segment"
+                        android:insetTop="0dp"
+                        android:insetBottom="0dp"
+                        android:letterSpacing="0"
+                        android:minWidth="0dp"
+                        android:minHeight="36dp"
+                        android:stateListAnimator="@null"
+                        android:textAllCaps="false"
+                        android:textSize="14sp"
+                        app:backgroundTint="@android:color/transparent"
+                        app:rippleColor="@android:color/transparent" />
+
+                    <Button
+                        android:id="@+id/btnTabNumpad"
+                        style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/keys_numpad"
+                        android:textColor="@color/keyboard_segment_text"
+                        android:fontFamily="sans-serif-medium"
+                        android:foreground="@drawable/bg_segment"
+                        android:insetTop="0dp"
+                        android:insetBottom="0dp"
+                        android:letterSpacing="0"
+                        android:minWidth="0dp"
+                        android:minHeight="36dp"
+                        android:stateListAnimator="@null"
+                        android:textAllCaps="false"
+                        android:textSize="14sp"
+                        app:backgroundTint="@android:color/transparent"
+                        app:rippleColor="@android:color/transparent" />
+
+                    <Button
+                        android:id="@+id/btnTabNav"
+                        style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/keys_nav"
+                        android:textColor="@color/keyboard_segment_text"
+                        android:fontFamily="sans-serif-medium"
+                        android:foreground="@drawable/bg_segment"
+                        android:insetTop="0dp"
+                        android:insetBottom="0dp"
+                        android:letterSpacing="0"
+                        android:minWidth="0dp"
+                        android:minHeight="36dp"
+                        android:stateListAnimator="@null"
+                        android:textAllCaps="false"
+                        android:textSize="14sp"
+                        app:backgroundTint="@android:color/transparent"
+                        app:rippleColor="@android:color/transparent" />
+
+                </com.google.android.material.button.MaterialButtonToggleGroup>
+
+                <!-- Key grid rows (KeyPanels.build) -->
+                <LinearLayout
+                    android:id="@+id/keyPanel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:orientation="vertical" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>

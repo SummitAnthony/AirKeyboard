@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Tablets, both orientations: the mic widens and shows "Listening" while held, as before the phone
+     fixes. Its idle width and label still come from values / values-land. -->
+<resources>
+    <dimen name="trackpad_mic_width_listening">162dp</dimen>
+    <bool name="pad_mic_listening_label">true</bool>
+</resources>

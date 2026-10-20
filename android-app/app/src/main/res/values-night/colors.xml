@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Red glass theme (Settings > Theme > Red), stored as night mode: near-black base, crimson accent,
+     red-tinted glass. Only the colors that differ from values/colors.xml (blue) are here. -->
+<resources>
+    <color name="primary">#E5373F</color>
+    <color name="primary_dark">#B8202C</color>
+    <color name="primary_light">#3DE5373F</color>
+    <color name="accent">#E5373F</color>
+
+    <color name="base">#0A0607</color>
+    <color name="surface">#2A1A1E</color>
+    <color name="divider">#1FFFC8CC</color>
+
+    <color name="trackpad_background">#14FFC8CC</color>
+    <color name="trackpad_dragging">#33E5373F</color>
+
+    <color name="glass_fill">#26FFC8CC</color>
+    <color name="glass_stroke">#33FFB3B8</color>
+    <color name="glass_highlight">#3DFFD0D4</color>
+    <color name="glass_pressed">#4DFFC8CC</color>
+    <color name="glass_strong_top">#3DFFC8CC</color>
+    <color name="glass_strong_bottom">#22FFC8CC</color>
+    <color name="glass_strong_stroke">#5CFFB3B8</color>
+    <color name="glass_strong_highlight">#80FFD6D9</color>
+    <color name="glass_subtle_fill">#10FFC8CC</color>
+    <color name="glass_subtle_stroke">#26FFB3B8</color>
+    <color name="glass_surface_fill">#16FFC8CC</color>
+    <color name="glass_surface_highlight">#40FFD0D4</color>
+    <color name="glass_row_fill">#16FFC8CC</color>
+    <color name="glass_row_stroke">#26FFB3B8</color>
+    <color name="glass_sheet_fill">#F02A161A</color>
+    <color name="glass_sheet_stroke">#38FFB3B8</color>
+    <color name="glass_seg_track">#16FFC8CC</color>
+    <color name="glass_seg_selected">#40FFC8CC</color>
+
+    <color name="accent_fill">#CCD62839</color>
+    <color name="accent_fill_pressed">#FFD62839</color>
+    <color name="accent_stroke">#8CFF8A95</color>
+    <color name="modifier_fill">#3DD62839</color>
+    <color name="modifier_stroke">#80D62839</color>
+
+    <color name="link">#FF8F8F</color>
+    <color name="switch_off">#2EFFC8CC</color>
+    <color name="toast_fill">#E62A1418</color>
+</resources>

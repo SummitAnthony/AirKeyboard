@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="win">Win</string>
+    <string name="copy_from_pc">Copy from PC</string>
+    <string name="voice_input">Voice</string>
+    <string name="voice_listening">Listening… release to stop</string>
+    <string name="voice_hold_hint">Keep holding while you speak; release to stop</string>
+    <string name="voice_mic_denied">Voice input needs the microphone permission</string>
+    <string name="voice_error">Voice input stopped (error %d)</string>
+    <string name="voice_unavailable">No voice input on this device</string>
+    <string name="copied_from_pc">Copied %1$d characters from the PC</string>
+    <string name="pc_clipboard_failed">Couldn\'t read the PC clipboard</string>
+    <string name="keys_function">F-Keys</string>
+    <string name="keys_numpad">Numpad</string>
+    <string name="keys_nav">Nav</string>
+</resources>

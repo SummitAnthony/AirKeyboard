@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Network permissions -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!-- Camera permission for QR scanning -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera.any" android:required="false" />
+
+    <!-- Hold-to-talk voice input (PushToTalk), and seeing the speech recognizer on Android 11+ -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <queries>
+        <intent>
+            <action android:name="android.speech.RecognitionService" />
+        </intent>
+    </queries>
+
+    <application
+        android:name=".App"
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AirKeyboard"
+        android:usesCleartextTraffic="true">
+
+        <!-- Splash Activity -->
+        <activity
+            android:name=".ui.splash.SplashActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AirKeyboard.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Connection Setup Activity -->
+        <activity
+            android:name=".ui.connection.ConnectionActivity"
+            android:exported="false" />
+
+        <!-- Main Trackpad Activity -->
+        <activity
+            android:name=".ui.trackpad.TrackpadActivity"
+            android:exported="false" />
+
+        <!-- Keyboard Input Activity -->
+        <activity
+            android:name=".ui.keyboard.KeyboardActivity"
+            android:configChanges="orientation|screenSize|screenLayout|smallestScreenSize"
+            android:exported="false" />
+
+        <!-- Remotes/Bookmarks Activity -->
+        <activity
+            android:name=".ui.remotes.RemotesActivity"
+            android:exported="false" />
+
+        <!-- Settings Activity -->
+        <activity
+            android:name=".ui.settings.SettingsActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".ui.presentation.PresentationActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".ui.apps.AppsActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".ui.bookmarks.BookmarksActivity"
+            android:exported="false" />
+
+        <!-- The gyro keeps its calibration across rotation -->
+        <activity
+            android:name=".ui.airmouse.AirMouseActivity"
+            android:configChanges="orientation|screenSize|screenLayout|smallestScreenSize"
+            android:exported="false" />
+
+    </application>
+
+</manifest>

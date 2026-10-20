@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- iOS-style switch track 51x31: green when on -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android"><item android:state_checked="true"><shape android:shape="rectangle"><solid android:color="@color/success" /><corners android:radius="15.5dp" /><size android:width="51dp" android:height="31dp" /></shape></item><item><shape android:shape="rectangle"><solid android:color="@color/switch_off" /><corners android:radius="15.5dp" /><size android:width="51dp" android:height="31dp" /></shape></item></selector>

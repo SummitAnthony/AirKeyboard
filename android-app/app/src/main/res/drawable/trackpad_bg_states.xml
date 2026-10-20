@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Trackpad background: highlighted while a drag is armed or in progress (View.isActivated) -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_activated="true" android:drawable="@drawable/trackpad_dragging" />
+    <item android:drawable="@drawable/trackpad_background" />
+</selector>

@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Switch knob: white 27dp -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android"><item android:width="31dp" android:height="31dp"><shape android:shape="oval"><solid android:color="#00000000" /></shape></item><item android:width="31dp" android:height="31dp" android:left="2dp" android:top="2dp" android:right="2dp" android:bottom="2dp"><shape android:shape="oval"><solid android:color="#FFFFFFFF" /></shape></item></layer-list>

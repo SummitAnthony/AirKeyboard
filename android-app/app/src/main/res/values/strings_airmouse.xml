@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="air_mouse">Air Mouse</string>
+    <string name="air_mouse_hint">Hold the pad and turn the device to move the cursor. Let go to reposition it. Long-press Left Click to drag.</string>
+    <string name="air_mouse_hold">Hold to move</string>
+    <string name="air_mouse_no_gyro">This device has no gyroscope, so Air Mouse can\'t move the cursor.</string>
+</resources>

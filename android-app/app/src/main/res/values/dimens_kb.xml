@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Keyboard screen on phones; values-sw600dp keeps the tablet values -->
+<resources>
+    <!-- Between keys and key rows -->
+    <dimen name="kb_gap_key">5dp</dimen>
+    <!-- Text field floor: in landscape with the soft keyboard up, the action row still shows below it -->
+    <dimen name="kb_field_min_height">80dp</dimen>
+    <!-- Action buttons (Send, Paste on PC, Copy from PC, Voice) -->
+    <dimen name="kb_action_padding_h">8dp</dimen>
+    <!-- Between app bar items -->
+    <dimen name="kb_app_bar_gap">10dp</dimen>
+    <!-- Labels shrink to fit narrow keys and buttons, not below 12sp: 1 = uniform, 0 = none -->
+    <integer name="kb_autosize">1</integer>
+</resources>

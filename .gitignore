@@ -1,0 +1,24 @@
+# Local tooling config
+.claude/
+.mcp.json
+# Build outputs
+android-app/.gradle/
+android-app/**/build/
+android-app/local.properties
+windows-server/bin/
+windows-server/obj/
+windows-server/publish/
+**/__pycache__/
+# Logs (any folder)
+logs/
+*.log
+# Test reports (contain test text)
+/*.json
+*report*.json
+# Signing keys
+*.jks
+*.keystore
+keystore.properties
+/latency-send.txt
+# App screenshots for design work (show the PC name, IP and window titles)
+/design/screenshots/

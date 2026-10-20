@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Glass palette (AirKeyboard Glass spec), the blue theme. The app is always dark glass; values-night
+     is the red theme (Settings > Theme), not a light/dark switch. -->
+<resources>
+    <!-- Legacy names, remapped to the glass palette -->
+    <color name="primary">#0A84FF</color>
+    <color name="primary_dark">#0A6FD6</color>
+    <color name="primary_light">#3D0A84FF</color>
+    <color name="accent">#0A84FF</color>
+
+    <!-- Roots are transparent so the window's gradient wallpaper (bg_app) shows through -->
+    <color name="background">#00000000</color>
+    <color name="base">#0A0A18</color>
+    <color name="surface">#28283A</color>
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#A6FFFFFF</color>
+    <color name="text_tertiary">#73FFFFFF</color>
+    <color name="divider">#1AFFFFFF</color>
+
+    <color name="trackpad_background">#14FFFFFF</color>
+    <color name="trackpad_dragging">#330A84FF</color>
+    <color name="error">#FF6961</color>
+    <color name="success">#30D158</color>
+
+    <!-- Glass surfaces. No backdrop blur (minSdk 24), so the default fill uses the spec's 14% fallback -->
+    <color name="glass_fill">#24FFFFFF</color>
+    <color name="glass_stroke">#2EFFFFFF</color>
+    <color name="glass_highlight">#38FFFFFF</color>
+    <color name="glass_pressed">#4DFFFFFF</color>
+    <color name="glass_strong_top">#38FFFFFF</color>
+    <color name="glass_strong_bottom">#1FFFFFFF</color>
+    <color name="glass_strong_stroke">#57FFFFFF</color>
+    <color name="glass_strong_highlight">#80FFFFFF</color>
+    <color name="glass_subtle_fill">#0FFFFFFF</color>
+    <color name="glass_subtle_stroke">#24FFFFFF</color>
+    <color name="glass_surface_fill">#14FFFFFF</color>
+    <color name="glass_surface_highlight">#40FFFFFF</color>
+    <color name="glass_row_fill">#14FFFFFF</color>
+    <color name="glass_row_stroke">#24FFFFFF</color>
+    <color name="glass_sheet_fill">#F028283A</color>
+    <color name="glass_sheet_stroke">#33FFFFFF</color>
+    <color name="glass_seg_track">#14FFFFFF</color>
+    <color name="glass_seg_selected">#3DFFFFFF</color>
+
+    <!-- Accent (primary actions) and modifier keys -->
+    <color name="accent_fill">#CC0A84FF</color>
+    <color name="accent_fill_pressed">#FF0A84FF</color>
+    <color name="accent_stroke">#8C8CC8FF</color>
+    <color name="modifier_fill">#3D0A84FF</color>
+    <color name="modifier_stroke">#800A84FF</color>
+
+    <!-- Status and roles -->
+    <color name="destructive">#FF6961</color>
+    <color name="recording">#FF453A</color>
+    <color name="recording_fill">#D9FF453A</color>
+    <color name="warning">#FF9F0A</color>
+    <color name="warning_fill">#29FF9F0A</color>
+    <color name="warning_stroke">#59FF9F0A</color>
+    <color name="link">#64B5FF</color>
+    <color name="mic_idle_text">#FF8A80</color>
+    <color name="mic_idle_stroke">#73FF6961</color>
+    <color name="switch_off">#2EFFFFFF</color>
+    <color name="toast_fill">#E61C1C2A</color>
+
+    <!-- Remotes tool tiles -->
+    <color name="tile_power">#E6FF453A</color>
+    <color name="tile_presentation">#E6FF9F0A</color>
+    <color name="tile_apps">#E65E5CE6</color>
+    <color name="tile_bookmarks">#E60A84FF</color>
+    <color name="tile_airmouse">#E630D158</color>
+</resources>

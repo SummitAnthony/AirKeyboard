@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <title>AirKeyboard</title>
+  <defs>
+    <radialGradient id="g0" gradientUnits="userSpaceOnUse" cx="80" cy="470" r="300"><stop offset="0" stop-color="#120D38" stop-opacity="0.9"/><stop offset="1" stop-color="#120D38" stop-opacity="0"/></radialGradient>
+    <radialGradient id="g1" gradientUnits="userSpaceOnUse" cx="380" cy="300" r="260"><stop offset="0" stop-color="#2A6EA8" stop-opacity="0.55"/><stop offset="1" stop-color="#2A6EA8" stop-opacity="0"/></radialGradient>
+    <radialGradient id="g2" gradientUnits="userSpaceOnUse" cx="100" cy="90" r="300"><stop offset="0" stop-color="#6F68F2" stop-opacity="0.95"/><stop offset="1" stop-color="#6F68F2" stop-opacity="0"/></radialGradient>
+    <radialGradient id="g3" gradientUnits="userSpaceOnUse" cx="420" cy="50" r="190"><stop offset="0" stop-color="#FF7A40" stop-opacity="0.85"/><stop offset="1" stop-color="#FF7A40" stop-opacity="0"/></radialGradient>
+    <radialGradient id="g4" gradientUnits="userSpaceOnUse" cx="440" cy="450" r="230"><stop offset="0" stop-color="#2FCBE3" stop-opacity="0.95"/><stop offset="1" stop-color="#2FCBE3" stop-opacity="0"/></radialGradient>
+    <filter id="blur" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="14"/></filter>
+    <filter id="pblur" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="5"/></filter>
+    <linearGradient id="cap" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF" stop-opacity="0.30"/><stop offset="1" stop-color="#FFFFFF" stop-opacity="0.10"/></linearGradient>
+    <linearGradient id="hl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF" stop-opacity="0.55"/><stop offset="1" stop-color="#FFFFFF" stop-opacity="0.06"/></linearGradient>
+  </defs>
+  <path fill="#1C1652" d="M112,0h288a112,112 0 0 1 112,112v288a112,112 0 0 1 -112,112h-288a112,112 0 0 1 -112,-112v-288a112,112 0 0 1 112,-112z"/>
+  <path fill="url(#g0)" d="M112,0h288a112,112 0 0 1 112,112v288a112,112 0 0 1 -112,112h-288a112,112 0 0 1 -112,-112v-288a112,112 0 0 1 112,-112z"/>
+  <path fill="url(#g1)" d="M112,0h288a112,112 0 0 1 112,112v288a112,112 0 0 1 -112,112h-288a112,112 0 0 1 -112,-112v-288a112,112 0 0 1 112,-112z"/>
+  <path fill="url(#g2)" d="M112,0h288a112,112 0 0 1 112,112v288a112,112 0 0 1 -112,112h-288a112,112 0 0 1 -112,-112v-288a112,112 0 0 1 112,-112z"/>
+  <path fill="url(#g3)" d="M112,0h288a112,112 0 0 1 112,112v288a112,112 0 0 1 -112,112h-288a112,112 0 0 1 -112,-112v-288a112,112 0 0 1 112,-112z"/>
+  <path fill="url(#g4)" d="M112,0h288a112,112 0 0 1 112,112v288a112,112 0 0 1 -112,112h-288a112,112 0 0 1 -112,-112v-288a112,112 0 0 1 112,-112z"/>
+  <path fill="#000000" fill-opacity="0.45" filter="url(#blur)" d="M109,404a150,34 0 1 0 300,0a150,34 0 1 0 -300,0z"/>
+  <path fill="url(#cap)" stroke="#FFFFFF" stroke-opacity="0.6" stroke-width="3" d="M186,104h146a66,66 0 0 1 66,66v146a66,66 0 0 1 -66,66h-146a66,66 0 0 1 -66,-66v-146a66,66 0 0 1 66,-66z"/>
+  <path fill="url(#hl)" d="M170,118h178a32,32 0 0 1 32,32v0a32,32 0 0 1 -32,32h-178a32,32 0 0 1 -32,-32v0a32,32 0 0 1 32,-32z"/>
+  <path fill="#000000" fill-opacity="0.28" stroke="#000000" stroke-opacity="0.28" stroke-width="14" stroke-linejoin="round" filter="url(#pblur)" d="M218,184L218,324L249,295L270,342L292,332L271,286L313,286z"/>
+  <path fill="#FFFFFF" stroke="#FFFFFF" stroke-width="14" stroke-linejoin="round" d="M214,176L214,316L245,287L266,334L288,324L267,278L309,278z"/>
+</svg>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="recent_pcs">Recent PCs</string>
+    <string name="recent_pcs_hint">Tap to connect, long-press to remove</string>
+    <!-- host:port · when last used -->
+    <string name="recent_pc_detail">%1$s:%2$d · %3$s</string>
+    <string name="recent_pc_removed">Removed %1$s</string>
+    <!-- Inline labels of the manual connection form -->
+    <string name="connection_host_label">Host</string>
+    <string name="connection_port_label">Port</string>
+    <string name="connection_port_hint">Default: 1978</string>
+    <!-- The connection was lost: the app goes back to the connection screen and reconnects -->
+    <string name="disconnected_from_server">Disconnected from server</string>
+    <!-- Shown under the buttons while retrying (every 2 s for up to 30 s); %1$s = host -->
+    <string name="reconnecting_to">Reconnecting to %1$s…</string>
+    <string name="reconnect_failed">Couldn\'t reconnect to %1$s</string>
+</resources>

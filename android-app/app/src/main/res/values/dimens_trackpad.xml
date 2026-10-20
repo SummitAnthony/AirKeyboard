@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Push-to-talk in the click row. Widths include bg_mic's 6dp ring inset on each side (visible + 12dp).
+     Phones held upright (this file): it stays icon-only and this narrow while held, so the click buttons
+     keep their labels; the Listening pill on the pad says it's listening. Phone landscape and tablets
+     (values-land, values-sw600dp) widen it and show "Listening". -->
+<resources>
+    <dimen name="trackpad_mic_width">66dp</dimen>
+    <dimen name="trackpad_mic_width_listening">66dp</dimen>
+    <bool name="trackpad_mic_label">false</bool>
+    <bool name="pad_mic_listening_label">false</bool>
+</resources>

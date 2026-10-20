@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Tablets, both orientations: Remotes, Presentation, App Switcher, Bookmarks and Air Mouse as before
+     the phone fixes. Must define everything values-land defines (this file wins over it). -->
+<resources>
+    <integer name="rem_app_bar_orientation">0</integer>
+    <item name="rem_title_weight" format="float" type="dimen">1</item>
+    <dimen name="rem_status_height">@dimen/height_pill</dimen>
+    <dimen name="rem_status_padding_h">14dp</dimen>
+    <dimen name="rem_status_margin_start">10dp</dimen>
+    <dimen name="rem_status_margin_top">0dp</dimen>
+
+    <integer name="rem_air_app_bar_orientation">0</integer>
+    <item name="rem_air_title_weight" format="float" type="dimen">1</item>
+    <dimen name="rem_air_status_height">@dimen/height_pill</dimen>
+    <dimen name="rem_air_status_padding_h">14dp</dimen>
+    <dimen name="rem_air_status_margin_start">10dp</dimen>
+    <dimen name="rem_air_status_margin_top">0dp</dimen>
+
+    <dimen name="rem_timer_text_size">24sp</dimen>
+    <integer name="rem_slide_icon_gravity">16</integer>
+    <!-- Material's default button side padding -->
+    <dimen name="rem_button_padding_h">16dp</dimen>
+    <integer name="rem_from_current_max_lines">1</integer>
+    <!-- 0 = no auto-size -->
+    <integer name="rem_autosize">0</integer>
+
+    <integer name="rem_tile_columns">5</integer>
+    <integer name="rem_shortcut_columns">4</integer>
+    <dimen name="rem_tile_label_min_text">10sp</dimen>
+</resources>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="trackpad_mic_width">142dp</dimen>
+    <dimen name="trackpad_mic_width_listening">162dp</dimen>
+    <bool name="trackpad_mic_label">true</bool>
+    <bool name="pad_mic_listening_label">true</bool>
+</resources>

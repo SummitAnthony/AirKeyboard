@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="settings_title">Settings</string>
+    <string name="settings_section_pointer">Pointer</string>
+    <string name="settings_section_scrolling">Scrolling</string>
+    <string name="settings_section_buttons">Buttons</string>
+    <string name="settings_section_display">Display</string>
+
+    <string name="settings_acceleration">Pointer acceleration</string>
+    <string name="settings_acceleration_sub">Faster moves go further</string>
+    <string name="settings_three_finger_drag">Three-finger drag</string>
+    <string name="settings_natural_scroll">Natural scrolling</string>
+    <string name="settings_natural_scroll_sub">Page follows your fingers</string>
+    <string name="settings_scroll_speed">Scroll speed</string>
+    <string name="settings_left_handed">Left-handed</string>
+    <string name="settings_left_handed_sub">Swap left and right click</string>
+    <string name="settings_volume_keys">Volume buttons control PC volume</string>
+    <string name="settings_keep_awake">Keep screen awake</string>
+    <string name="settings_theme">Theme</string>
+    <string name="settings_theme_blue">Blue</string>
+    <string name="settings_theme_red">Red</string>
+    <string name="settings_percent">%1$d%%</string>
+    <string name="settings_forget_passwords">Forget Saved PC Passwords</string>
+</resources>

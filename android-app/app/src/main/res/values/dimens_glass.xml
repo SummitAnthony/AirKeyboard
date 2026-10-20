@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="screen_padding_h">20dp</dimen>
+    <dimen name="screen_padding_bottom">16dp</dimen>
+    <dimen name="gap">10dp</dimen>
+    <dimen name="gap_key">8dp</dimen>
+    <dimen name="radius_button">16dp</dimen>
+    <dimen name="radius_key">13dp</dimen>
+    <dimen name="radius_card">20dp</dimen>
+    <dimen name="radius_trackpad">28dp</dimen>
+    <dimen name="radius_dialog">26dp</dimen>
+    <dimen name="height_primary">52dp</dimen>
+    <dimen name="height_secondary">46dp</dimen>
+    <dimen name="height_key">44dp</dimen>
+    <dimen name="height_row">54dp</dimen>
+    <dimen name="height_app_bar">60dp</dimen>
+    <dimen name="height_pill">36dp</dimen>
+</resources>

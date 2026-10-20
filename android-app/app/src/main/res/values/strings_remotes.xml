@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Remotes hub -->
+    <string name="remote_tools">Tools</string>
+    <string name="hub_power">Power</string>
+    <string name="hub_presentation">Presentation</string>
+    <string name="hub_app_switcher">App Switcher</string>
+    <string name="hub_bookmarks">Bookmarks</string>
+    <string name="hub_air_mouse">Air Mouse</string>
+
+    <!-- Power panel -->
+    <string name="power_shutdown">Shut down</string>
+    <string name="power_restart">Restart</string>
+    <string name="power_sleep">Sleep</string>
+    <string name="power_logoff">Log off</string>
+    <string name="power_lock">Lock</string>
+    <string name="confirm_shutdown">Shut down the PC?</string>
+    <string name="confirm_restart">Restart the PC?</string>
+    <string name="confirm_sleep">Put the PC to sleep?</string>
+    <string name="confirm_logoff">Log off the PC?</string>
+    <string name="confirm_lock">Lock the PC?</string>
+
+    <!-- Presentation -->
+    <string name="slide_previous">Previous</string>
+    <string name="slide_next">Next</string>
+    <string name="slideshow_start">Start</string>
+    <string name="slideshow_from_current">From Current Slide</string>
+    <string name="slideshow_end">End</string>
+    <string name="slideshow_black">Black Screen</string>
+    <string name="slideshow_white">White Screen</string>
+    <string name="presentation_hint">Volume down = next slide, volume up = previous</string>
+
+    <!-- Bookmarks -->
+    <string name="add_bookmark">Add Bookmark</string>
+    <string name="edit_bookmark">Edit Bookmark</string>
+    <string name="bookmark_name">Name</string>
+    <string name="bookmark_url">URL</string>
+    <string name="bookmark_invalid_url">Enter an http or https address</string>
+    <string name="bookmark_name_required">Enter a name</string>
+    <string name="bookmark_url_too_long">This link is too long to send to the PC</string>
+    <string name="bookmark_save">Save</string>
+    <string name="bookmark_edit">Edit</string>
+    <string name="bookmark_delete">Delete</string>
+    <string name="opening_on_pc">Opening %1$s on PC</string>
+    <string name="no_bookmarks">No bookmarks yet</string>
+
+    <!-- App switcher -->
+    <string name="windows_refresh">Refresh</string>
+    <string name="windows_title">Open windows</string>
+    <string name="switcher_alt_tab">Alt+Tab</string>
+    <string name="switcher_task_view">Task View</string>
+    <string name="switcher_show_desktop">Show Desktop</string>
+    <string name="switcher_fullscreen">Fullscreen</string>
+    <string name="switcher_close_window">Close Window</string>
+    <string name="windows_loading">Loading windows…</string>
+    <string name="windows_empty">No open windows</string>
+    <string name="windows_failed">Couldn\'t get the window list from the PC</string>
+</resources>

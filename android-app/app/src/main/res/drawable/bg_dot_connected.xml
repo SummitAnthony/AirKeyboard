@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Connected dot with a 3dp glow ring -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android"><item><shape android:shape="oval"><solid android:color="#4D30D158" /><size android:width="14dp" android:height="14dp" /></shape></item><item android:left="3dp" android:top="3dp" android:right="3dp" android:bottom="3dp"><shape android:shape="oval"><solid android:color="@color/success" /></shape></item></layer-list>

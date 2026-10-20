@@ -1,0 +1,33 @@
+# Build results
+bin/
+obj/
+.vs/
+.vscode/
+
+# Runtime
+logs/
+*.log
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+*.swp
+*.swo
+
+# Project-specific
+pairing-qr.png
+*.db
+*.sqlite
+
+# Dependencies
+packages/
+.nuget/

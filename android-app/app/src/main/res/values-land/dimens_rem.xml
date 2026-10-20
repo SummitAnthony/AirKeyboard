@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Phone landscape: one-row app bar and one row of tiles / shortcuts, as on the tablet
+     (tablets: values-sw600dp, which wins over this file) -->
+<resources>
+    <integer name="rem_app_bar_orientation">0</integer>
+    <item name="rem_title_weight" format="float" type="dimen">1</item>
+    <dimen name="rem_status_height">@dimen/height_pill</dimen>
+    <dimen name="rem_status_padding_h">14dp</dimen>
+    <dimen name="rem_status_margin_start">10dp</dimen>
+    <dimen name="rem_status_margin_top">0dp</dimen>
+
+    <dimen name="rem_timer_text_size">24sp</dimen>
+    <!-- Short screen: icon beside the label (0x2 = textStart) so Previous / Next fit their height -->
+    <integer name="rem_slide_icon_gravity">2</integer>
+
+    <integer name="rem_tile_columns">5</integer>
+    <integer name="rem_shortcut_columns">4</integer>
+</resources>

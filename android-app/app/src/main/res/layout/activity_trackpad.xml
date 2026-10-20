@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The pad takes all the space left by the app bar and two rows of buttons, in either orientation.
+     clipToPadding off: the click row reaches 6dp into the end padding for the mic's glow ring. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipToPadding="false"
+    android:orientation="vertical"
+    android:paddingHorizontal="@dimen/screen_padding_h"
+    android:paddingBottom="@dimen/screen_padding_bottom">
+
+    <!-- App bar. Title and connection pill in a row; on phones held upright the pill goes under the
+         title (dimens_pad), so a long PC address still fits. -->
+    <LinearLayout
+        android:id="@+id/appBar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_app_bar"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:orientation="@integer/pad_app_bar_orientation">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="@dimen/pad_title_weight"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="@string/app_name"
+                android:textAppearance="@style/TextAppearance.Glass.AppBarTitle" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/pad_status_height"
+                android:layout_marginStart="@dimen/pad_status_margin_start"
+                android:layout_marginTop="@dimen/pad_status_margin_top"
+                android:background="@drawable/bg_glass_pill"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="@dimen/pad_status_padding_h">
+
+                <View
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    android:background="@drawable/bg_dot_connected" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    android:text="@string/connected"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="14sp"
+                    android:visibility="@integer/landscape_only_visibility" />
+
+                <TextView
+                    android:id="@+id/tvConnectionStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:maxLines="1"
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnDisconnect"
+            style="@style/Widget.Glass.Button.Pill.Destructive"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/height_pill"
+            android:layout_marginStart="10dp"
+            android:text="@string/disconnect" />
+
+    </LinearLayout>
+
+    <!-- Main trackpad area; the hint, glow and listening pill are not clickable, so touches reach the pad -->
+    <FrameLayout
+        android:id="@+id/padFrame"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="4dp">
+
+        <View
+            android:id="@+id/trackpadView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/trackpad_bg_states" />
+
+        <TextView
+            android:id="@+id/tvPadHint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:lineSpacingExtra="4dp"
+            android:padding="@dimen/pad_hint_padding"
+            android:text="@string/trackpad_hint"
+            android:textColor="#80FFFFFF"
+            android:textSize="15sp" />
+
+        <!-- Soft glow under the finger (moved and faded by TrackpadActivity.showGlow) -->
+        <View
+            android:id="@+id/padGlow"
+            android:layout_width="84dp"
+            android:layout_height="84dp"
+            android:alpha="0"
+            android:background="@drawable/bg_trackpad_glow"
+            android:clickable="false"
+            android:focusable="false"
+            android:importantForAccessibility="no" />
+
+        <!-- Shown while the mic is held -->
+        <TextView
+            android:id="@+id/tvListeningPill"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|center_horizontal"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/bg_trackpad_listening"
+            android:drawablePadding="8dp"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="14dp"
+            android:paddingVertical="8dp"
+            android:text="@string/trackpad_listening_pill"
+            android:textColor="@color/text_primary"
+            android:textSize="14sp"
+            android:visibility="gone"
+            android:drawableStart="@drawable/ic_trackpad_rec_dot" />
+
+    </FrameLayout>
+
+    <!-- Mouse buttons row (left-handed mode swaps what Left and Right send, and their labels), then
+         hold to talk. The mic view is 12dp taller/wider than it looks (bg_mic's 6dp ring inset), so the
+         margins here are the visible gaps minus 6dp. Phones: smaller gaps and a wider Middle (dimens_pad). -->
+    <LinearLayout
+        android:id="@+id/controlsArea"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="-6dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnLeftClick"
+            style="@style/Widget.Glass.Button.Strong"
+            android:layout_width="0dp"
+            android:layout_height="54dp"
+            android:layout_weight="2"
+            android:maxLines="1"
+            android:paddingStart="4dp"
+            android:paddingEnd="4dp"
+            android:text="@string/left_click" />
+
+        <Button
+            android:id="@+id/btnMiddleClick"
+            style="@style/Widget.Glass.Button.Subtle"
+            android:layout_width="0dp"
+            android:layout_height="54dp"
+            android:layout_weight="@dimen/pad_middle_weight"
+            android:layout_marginStart="@dimen/pad_button_gap"
+            android:maxLines="1"
+            android:paddingStart="4dp"
+            android:paddingEnd="4dp"
+            android:text="@string/middle_click" />
+
+        <Button
+            android:id="@+id/btnRightClick"
+            style="@style/Widget.Glass.Button.Strong"
+            android:layout_width="0dp"
+            android:layout_height="54dp"
+            android:layout_weight="2"
+            android:layout_marginStart="@dimen/pad_button_gap"
+            android:maxLines="1"
+            android:paddingStart="4dp"
+            android:paddingEnd="4dp"
+            android:text="@string/right_click" />
+
+        <!-- Hold to talk: icon only in portrait, labelled in landscape; widens while held, except on phones
+             held upright (TrackpadActivity.showMic, dimens_trackpad) -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnVoicePad"
+            style="@style/Widget.Glass.Button.Mic"
+            android:layout_width="@dimen/trackpad_mic_width"
+            android:layout_height="66dp"
+            android:layout_marginStart="@dimen/pad_mic_margin_start"
+            android:contentDescription="@string/trackpad_mic_idle"
+            android:maxLines="1"
+            android:textSize="15sp"
+            app:icon="@drawable/ic_trackpad_mic"
+            app:iconPadding="0dp"
+            app:iconSize="22dp" />
+
+    </LinearLayout>
+
+    <!-- Scroll and navigation row. Phones held upright show the icons only (pad_nav_labels, set in
+         TrackpadActivity.setupUI). Not baseline-aligned, so a label that wraps can't push its button down. -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:baselineAligned="false"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnScrollUp"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/height_secondary"
+            android:layout_weight="1"
+            android:maxLines="1"
+            android:paddingStart="4dp"
+            android:paddingEnd="4dp"
+            android:text="@string/scroll_up"
+            android:textSize="14sp"
+            app:icon="@drawable/ic_arrow_up"
+            app:iconPadding="@dimen/pad_nav_icon_padding"
+            app:iconSize="@dimen/pad_nav_icon_size" />
+
+        <Button
+            android:id="@+id/btnScrollDown"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/height_secondary"
+            android:layout_weight="1"
+            android:layout_marginStart="@dimen/pad_button_gap"
+            android:maxLines="1"
+            android:paddingStart="4dp"
+            android:paddingEnd="4dp"
+            android:text="@string/scroll_down"
+            android:textSize="14sp"
+            app:icon="@drawable/ic_arrow_down"
+            app:iconPadding="@dimen/pad_nav_icon_padding"
+            app:iconSize="@dimen/pad_nav_icon_size" />
+
+        <Button
+            android:id="@+id/btnKeyboard"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/height_secondary"
+            android:layout_weight="1"
+            android:layout_marginStart="@dimen/pad_button_gap"
+            android:maxLines="1"
+            android:paddingStart="4dp"
+            android:paddingEnd="4dp"
+            android:text="@string/keyboard"
+            android:textSize="14sp"
+            app:icon="@drawable/ic_keyboard"
+            app:iconPadding="@dimen/pad_nav_icon_padding"
+            app:iconSize="@dimen/pad_nav_icon_size" />
+
+        <Button
+            android:id="@+id/btnRemotes"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/height_secondary"
+            android:layout_weight="1"
+            android:layout_marginStart="@dimen/pad_button_gap"
+            android:maxLines="1"
+            android:paddingStart="4dp"
+            android:paddingEnd="4dp"
+            android:text="@string/remotes"
+            android:textSize="14sp"
+            app:icon="@drawable/ic_grid"
+            app:iconPadding="@dimen/pad_nav_icon_padding"
+            app:iconSize="@dimen/pad_nav_icon_size" />
+
+        <Button
+            android:id="@+id/btnSettings"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/height_secondary"
+            android:layout_weight="1"
+            android:layout_marginStart="@dimen/pad_button_gap"
+            android:maxLines="1"
+            android:paddingStart="4dp"
+            android:paddingEnd="4dp"
+            android:text="@string/settings"
+            android:textSize="14sp"
+            app:icon="@drawable/ic_sliders"
+            app:iconPadding="@dimen/pad_nav_icon_padding"
+            app:iconSize="@dimen/pad_nav_icon_size" />
+
+    </LinearLayout>
+
+</LinearLayout>

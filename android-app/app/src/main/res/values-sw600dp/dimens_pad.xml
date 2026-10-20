@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Tablets, both orientations: the trackpad and Settings as before the phone fixes -->
+<resources>
+    <integer name="pad_app_bar_orientation">0</integer>
+    <item name="pad_title_weight" format="float" type="dimen">1</item>
+    <dimen name="pad_status_height">@dimen/height_pill</dimen>
+    <dimen name="pad_status_padding_h">14dp</dimen>
+    <dimen name="pad_status_margin_start">10dp</dimen>
+    <dimen name="pad_status_margin_top">0dp</dimen>
+
+    <bool name="pad_nav_labels">true</bool>
+    <dimen name="pad_nav_icon_size">17dp</dimen>
+    <dimen name="pad_nav_icon_padding">6dp</dimen>
+
+    <dimen name="pad_button_gap">10dp</dimen>
+    <dimen name="pad_mic_margin_start">4dp</dimen>
+    <item name="pad_middle_weight" format="float" type="dimen">1</item>
+    <dimen name="pad_hint_padding">24dp</dimen>
+</resources>

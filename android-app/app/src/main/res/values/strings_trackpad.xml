@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="trackpad_hint">Tap to click · Two fingers to scroll · Pinch to zoom\nHold still, then move to drag</string>
+    <string name="trackpad_mic_idle">Hold to talk</string>
+    <string name="trackpad_mic_listening">Listening</string>
+    <string name="trackpad_listening_pill">Listening — release to send</string>
+</resources>
